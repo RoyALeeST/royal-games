@@ -1,0 +1,32 @@
+.hex-container{
+    display: flex;
+    justify-content: center;
+}
+
+.hexagon{
+    width: 800px;
+    height: 90px;
+    background-color: black;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    h3{
+        color:white;
+    }
+}
+
+.hexagon-right-side{
+    width: 0;
+    height: 0;
+    border-top: 45px solid transparent;
+    border-left: 60px solid black;
+    border-bottom: 45px solid transparent;
+}
+
+.hexagon-left-side{
+    width: 0;
+    height: 0;
+    border-top: 45px solid transparent;
+    border-right: 60px solid black;
+    border-bottom: 45px solid transparent;
+}
