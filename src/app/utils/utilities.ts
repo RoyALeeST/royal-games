@@ -15,3 +15,10 @@ export const shuffle = function (array) {
   
     return array;
   }
+
+  export const playSound = function(audioURL){
+    let audio = new Audio();
+    audio.src = audioURL;
+    audio.load();
+    audio.play();
+  }

@@ -77,7 +77,7 @@
     cursor: pointer;
     display: inline-block;
     padding: 0.65em 1.6em;
-    border: 3px solid #3ebb1f;
+    border: 3px solid #3d3d3d;
     border-radius: 0.12em;
     text-decoration: none;
     font-weight: 300;
@@ -86,12 +86,17 @@
     transition: all 0.2s;
     animation: bn13bouncy 5s infinite linear;
     position: relative;
-    background-color: rgb(238, 234, 30);
+    background-color: rgb(245, 244, 173);
     width: 150px;
+  }
+
+  .safe-answer{
+    background-color: rgb(151, 214, 142) !important;
+
   }
   
   .bn13:hover {
-    background-color: rgb(238, 234, 30);
+    background-color: rgb(245, 234, 184);
     color: #000000;
   }
   

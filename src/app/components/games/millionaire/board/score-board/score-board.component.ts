@@ -1,4 +1,4 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, Input, OnChanges, OnInit, SimpleChanges } from '@angular/core';
 import { MillionaireQuestionsService } from 'src/app/services/games/millionaireQuestions.service';
 
 @Component({
@@ -6,7 +6,7 @@ import { MillionaireQuestionsService } from 'src/app/services/games/millionaireQ
   templateUrl: './score-board.component.html',
   styleUrls: ['./score-board.component.scss']
 })
-export class ScoreBoardComponent implements OnInit {
+export class ScoreBoardComponent implements OnInit, OnChanges {
 
   @Input() difficulty;
 
@@ -27,6 +27,9 @@ export class ScoreBoardComponent implements OnInit {
   {value: "100$", difficulty: 1} ,
                         ]
   constructor(private millionaireQuestionsService: MillionaireQuestionsService) { }
+  ngOnChanges(changes: SimpleChanges): void {
+    console.log(this.difficulty % 5)
+  }
 
   ngOnInit(): void {
     this.millionaireQuestionsService.gameReset$.subscribe(

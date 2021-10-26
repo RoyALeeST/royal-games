@@ -1,5 +1,6 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { MillionaireQuestionsService } from 'src/app/services/games/millionaireQuestions.service';
+import { playSound } from '../../../../../../utils/utilities';
 
 @Component({
   selector: 'royal-answer',
@@ -20,4 +21,7 @@ export class AnswerComponent implements OnInit {
     this.millionaireQuestionsService.announceAnswerSelected(this.answer);
   }
 
+  playCursorSfx(){
+    playSound("assets/sounds/cursor.wav");
+  }
 }

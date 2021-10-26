@@ -3,17 +3,20 @@
     src: url("https://acupoftee.github.io/fonts/Clip.ttf");
   }
   
-  
+  $text-color: #dfdbf0;
+  $text-color-2: #3f3f3f;
+  $blink-color: #272727;
+
   .sign {
     position: absolute;
     display: flex;
     justify-content: center;
     align-items: center;
-    width: 50%;
-    height: 50%;
+    width: 70%;
+    height: 70%;
     background-image: radial-gradient(
       ellipse 50% 35% at 50% 50%,
-      #6b1839,
+      #1e186b,
       transparent
     );
     transform: translate(-50%, -50%);
@@ -23,10 +26,10 @@
     font-family: "Clip";
     text-transform: uppercase;
     font-size: 6em;
-    color: #ffe6ff;
-    text-shadow: 0 0 0.6rem #ffe6ff, 0 0 1.5rem #ff65bd,
-      -0.2rem 0.1rem 1rem #ff65bd, 0.2rem 0.1rem 1rem #ff65bd,
-      0 -0.5rem 2rem #ff2483, 0 0.5rem 3rem #ff2483;
+    color: $text-color;
+    text-shadow: 0 0 0.6rem $text-color, 0 0 1.5rem $text-color-2,
+      -0.2rem 0.1rem 1rem $text-color-2, 0.2rem 0.1rem 1rem $text-color-2,
+      0 -0.5rem 2rem $blink-color, 0 0.5rem 3rem $blink-color;
     animation: shine 2s forwards, flicker 3s infinite;
   }
   
@@ -35,19 +38,19 @@
     22%,
     36%,
     75% {
-      color: #ffe6ff;
-      text-shadow: 0 0 0.6rem #ffe6ff, 0 0 1.5rem #ff65bd,
-        -0.2rem 0.1rem 1rem #ff65bd, 0.2rem 0.1rem 1rem #ff65bd,
-        0 -0.5rem 2rem #ff2483, 0 0.5rem 3rem #ff2483;
+      color: $text-color;
+      text-shadow: 0 0 0.6rem $text-color, 0 0 1.5rem $text-color-2,
+        -0.2rem 0.1rem 1rem $text-color-2, 0.2rem 0.1rem 1rem $text-color-2,
+        0 -0.5rem 2rem $blink-color, 0 0.5rem 3rem $blink-color;
     }
     28%,
     33% {
-      color: #ff65bd;
+      color: $text-color-2;
       text-shadow: none;
     }
     82%,
     97% {
-      color: #ff2483;
+      color: $blink-color;
       text-shadow: none;
     }
   }
@@ -62,14 +65,14 @@
   
   @keyframes shine {
     0% {
-      color: #6b1839;
+      color: #912f17;
       text-shadow: none;
     }
     100% {
-      color: #ffe6ff;
-      text-shadow: 0 0 0.6rem #ffe6ff, 0 0 1.5rem #ff65bd,
-        -0.2rem 0.1rem 1rem #ff65bd, 0.2rem 0.1rem 1rem #ff65bd,
-        0 -0.5rem 2rem #ff2483, 0 0.5rem 3rem #ff2483;
+      color: $text-color;
+      text-shadow: 0 0 0.6rem $text-color, 0 0 1.5rem $text-color-2,
+        -0.2rem 0.1rem 1rem $text-color-2, 0.2rem 0.1rem 1rem $text-color-2,
+        0 -0.5rem 2rem $blink-color, 0 0.5rem 3rem $blink-color;
     }
   }
   

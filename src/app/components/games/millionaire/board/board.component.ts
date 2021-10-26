@@ -5,6 +5,8 @@ import { ErrorHandlerService } from '../../../../shared/services/error-handler.s
 import {MatDialog} from '@angular/material/dialog';
 import { shuffle } from '../../../../utils/utilities';
 import { LoserDialogComponent } from './dialogs/loser-dialog/loser-dialog.component';
+import { playSound } from '../../../../utils/utilities';
+
 @Component({
   selector: 'royal-board',
   templateUrl: './board.component.html',
@@ -77,7 +79,9 @@ export class BoardComponent implements OnInit {
 
   openDialog() {
     const dialogRef = this.dialog.open(LoserDialogComponent);
+    playSound("assets/sounds/game_over_sfx.mp3");
   }
+
 
   // Request next question from backend
   requestQuestion(){

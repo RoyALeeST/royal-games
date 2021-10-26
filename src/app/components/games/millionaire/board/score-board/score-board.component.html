@@ -1,16 +1,18 @@
 <div id="levels">
+    <h1>{{difficulty}}</h1>
     <li *ngFor="let reward of moneyrewards">
         <div *ngIf="reward.difficulty != difficulty; else currReward">
             <button class="btn">
-                <span class="btn-text" [ngClass]="{'active': reward.difficulty == difficulty}">{{reward.value}}</span>
+                <span class="btn-text" [ngClass]="{'active': reward.difficulty == difficulty }">{{reward.value}}</span>
             </button>
         </div>
         <ng-template #currReward>
             <div>
-                <button class="bn13">{{reward.value}}</button>
+                <button class="bn13" [ngClass]="{'safe-answer': (reward.difficulty % 5 == 0)}">{{reward.value}}</button>
             </div>
         </ng-template>
-
     </li>
 </div>
-<royal-reset-button></royal-reset-button>
+<div class="reset-btn-container">
+    <royal-reset-button></royal-reset-button>
+</div>
