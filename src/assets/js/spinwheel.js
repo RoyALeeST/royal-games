@@ -1,3 +1,53 @@
+const spinWheel = function spin(d){
+    
+    container.on("click", null);
+
+    //all slices have been seen, all done
+    console.log("OldPick: " + oldpick.length, "Data length: " + data.length);
+    if(oldpick.length == data.length){
+        console.log("done");
+        container.on("click", null);
+        return;
+    }
+
+    var  ps       = 360/data.length,
+         pieslice = Math.round(1440/data.length),
+         rng      = Math.floor((Math.random() * 1440) + 360);
+        
+    rotation = (Math.round(rng / ps) * ps);
+    
+    picked = Math.round(data.length - (rotation % 360)/ps);
+    picked = picked >= data.length ? (picked % data.length) : picked;
+
+
+    if(oldpick.indexOf(picked) !== -1){
+        d3.select(this).call(spin);
+        return;
+    } else {
+        oldpick.push(picked);
+    }
+
+    rotation += 90 - Math.round(ps/2);
+
+    vis.transition()
+        .duration(3000)
+        .attrTween("transform", rotTween)
+        .each("end", function(){
+
+            //mark question as seen
+            d3.select(".slice:nth-child(" + (picked + 1) + ") path")
+                .attr("fill", "#111");
+
+            //populate question
+            d3.select("#question h1")
+                .text(data[picked].question + " - " + data[picked].value + " Chupito(s)");
+
+            oldrotation = rotation;
+        
+            container.on("click", spin);
+        });
+}
+
 const initWheel = function(questionsArray) {setTimeout(function(){
     var padding = {top:20, right:40, bottom:0, left:0},
     w = 500 - padding.left - padding.right,

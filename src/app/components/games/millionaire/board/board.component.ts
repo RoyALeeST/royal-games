@@ -2,8 +2,9 @@ import { Component, OnInit } from '@angular/core';
 import { MillionaireQuestion } from 'src/app/models/games/millionaireQuestion.model';
 import { MillionaireQuestionsService } from '../../../../services/games/millionaireQuestions.service'
 import { ErrorHandlerService } from '../../../../shared/services/error-handler.service';
+import {MatDialog} from '@angular/material/dialog';
 import { shuffle } from '../../../../utils/utilities';
-
+import { LoserDialogComponent } from './dialogs/loser-dialog/loser-dialog.component';
 @Component({
   selector: 'royal-board',
   templateUrl: './board.component.html',
@@ -18,6 +19,7 @@ export class BoardComponent implements OnInit {
   difficulty: number = 1;
 
   constructor(private millionaireQuestionsService: MillionaireQuestionsService,
+              public dialog: MatDialog,
               private errorService: ErrorHandlerService) { 
                 this.dialogConfig = {
                   height: '200px',
@@ -28,20 +30,62 @@ export class BoardComponent implements OnInit {
   }
 
   ngOnInit(): void {
+
+    this.initSubscriptions();
     this.requestQuestion();
+
+  }
+
+  initSubscriptions() {
+    this.millionaireQuestionsService.answerSelected$.subscribe(
+      (isAnswerCorrect) => {
+        if(isAnswerCorrect){
+          this.requestQuestion();
+        } else {
+          this.openDialog();
+        }
+      }, 
+      (error)=>{
+        this.handleError(error)
+      }
+    )
+
+    this.millionaireQuestionsService.difficultyChanged$.subscribe(
+      (difficulty) => {
+        this.difficulty = difficulty;
+      }
+    )
+
+    this.millionaireQuestionsService.gameReset$.subscribe(
+      (data)=> {
+        this.requestQuestion();
+      },
+      (error)=> {
+        this.handleError(error);
+      },
+    )
+
+    this.millionaireQuestionsService.fiftyLifelineSelected$.subscribe(
+      (filteredAnswers) => {
+        this.answers = filteredAnswers;
+      },
+      (error) => {
+        this.handleError(error);
+      }
+    )
+  }
+
+  openDialog() {
+    const dialogRef = this.dialog.open(LoserDialogComponent);
   }
 
   // Request next question from backend
   requestQuestion(){
-    this.millionaireQuestionsService.getQuestionByDifficulty(this.difficulty).subscribe(
+    this.millionaireQuestionsService.getQuestionByDifficulty().subscribe(
       {
         next: this.handleQuestionsResponse.bind(this),
         error: this.handleError.bind(this)
       });
-  }
-
-  rateQuestion(){
-    this.millionaireQuestionsService.answerSelected$.subscribe()
   }
 
   /***
@@ -50,10 +94,11 @@ export class BoardComponent implements OnInit {
    */ 
   handleQuestionsResponse(response: MillionaireQuestion){
     this.question = response;
-    this.currentQuestion = this.question.question!;
-    this.answers = [this.question.correctAnswer, ...this.question.invalidAnswers];
-    shuffle(this.answers);
-    this.difficulty += 1;
+    if(this.question != null){
+      this.currentQuestion = this.question.question;
+      this.answers = [this.question.correctAnswer, ...this.question.invalidAnswers];
+      shuffle(this.answers);  
+    }
   }
   /***
    * @params {error} error to be displayed to the user

@@ -1,94 +1,42 @@
 .content{
     display: flex;
     align-items: center;
-    justify-content: center;
-}
-
-.board{
-
-}
-
-
-.arrow-up {
-    // background-color: #111;
-    height: 40px;
-    width: 40px;
-    display: block;
-    border: 1px solid #666;
-    position: relative;
-    cursor: pointer;
-    transition: all 0.5s cubic-bezier(0.25, 1.7, 0.35, 1.5);
-    overflow: hidden;
-  }
-  
-  .arrow-slide {
-    left: 0;
-    top: -100%;
-    width: 100%;
+    justify-content: space-evenly;
     height: 100%;
-    background: #666;
-    position: absolute;
-    display: block;
-    z-index: 0;
-  }
-  
-  .left-arm {
-    position: absolute;
-    z-index: 1;
-    background-color: transparent;
-    top: 19px;
-    left: 3px;
-    width: 20px;
-    display: block;
-    transform: rotate(-45deg);
-    &:after {
-      content: "";
-      background-color: #666;
-      width: 20px;
-      height: 1px;
-      display: block;
-      border-radius: 1px;
-      transition: all 0.5s cubic-bezier(0.25, 1.7, 0.35, 1.5);
-      transform-origin: right center;
-      z-index: -1;
-    }
-  }
-  
-  .right-arm {
-    position: absolute;
-    z-index: 1;
-    background-color: transparent;
-    top: 19px;
-    left: 17px;
-    width: 20px;
-    display: block;
-    transform: rotate(45deg);
-    border-radius: 2px;
-    &:after {
-      content: "";
-      background-color: #666;
-      width: 20px;
-      height: 1px;
-      display: block;
-      border-radius: 1px;
-      transition: all 0.5s cubic-bezier(0.25, 1.7, 0.35, 1.5);
-      transform-origin: left center;
-      z-index: -1;
-    }
-  }
-  
-  .arrow-up:hover {
-    transition: all .1s;
-    .left-arm:after {
-      transform: rotate(-10deg);
-    }
-    .right-arm:after {
-      transform: rotate(10deg);
-    }
-    .arrow-slide {
-      transition: all .4s ease-in-out;
-      transform: translateY(200%);
-    }
-  }
-  
-   // /Up Arrow Swipe
+}
+.to-top{
+  cursor: pointer;
+	color:rgb(61, 61, 61);
+	padding-top:2.8em;
+	display:inline-block;/* or block */
+	position:relative;
+	border-color:white;
+	text-decoration:none;
+	transition:all .3s ease-out;
+}
+.to-top:before{
+	content:'▲';
+	font-size:1.5em;
+	position:absolute;
+	top:0;
+	left:50%;
+	margin-left:-.7em;
+	border:solid .13em rgb(148, 52, 52);
+	border-radius:10em;
+	width:1.4em;
+	height:1.4em;
+	line-height:1.3em;
+	border-color:inherit;
+	transition:transform .5s ease-in;
+}
+.to-top:hover{
+	color:rgb(37, 70, 255);
+	border-color:rgb(72, 33, 245);
+}
+.to-top:hover:before{
+	transform: rotate(360deg);
+}
+
+.lifelines-container{
+	margin-top: 10px;
+}

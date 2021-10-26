@@ -1,1 +1,16 @@
-<p>score-board works!</p>
+<div id="levels">
+    <li *ngFor="let reward of moneyrewards">
+        <div *ngIf="reward.difficulty != difficulty; else currReward">
+            <button class="btn">
+                <span class="btn-text" [ngClass]="{'active': reward.difficulty == difficulty}">{{reward.value}}</span>
+            </button>
+        </div>
+        <ng-template #currReward>
+            <div>
+                <button class="bn13">{{reward.value}}</button>
+            </div>
+        </ng-template>
+
+    </li>
+</div>
+<royal-reset-button></royal-reset-button>

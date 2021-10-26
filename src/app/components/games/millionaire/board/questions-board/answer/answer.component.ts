@@ -1,4 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
+import { MillionaireQuestionsService } from 'src/app/services/games/millionaireQuestions.service';
 
 @Component({
   selector: 'royal-answer',
@@ -10,9 +11,13 @@ export class AnswerComponent implements OnInit {
 
   @Input() answer: string;
 
-  constructor() { }
+  constructor(private millionaireQuestionsService: MillionaireQuestionsService) {}
 
   ngOnInit(): void {
+  }
+
+  emitAnswerSelected(){
+    this.millionaireQuestionsService.announceAnswerSelected(this.answer);
   }
 
 }

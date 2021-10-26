@@ -5,9 +5,11 @@ import {BrowserAnimationsModule} from '@angular/platform-browser/animations'; //
 
 import { AppComponent } from './app.component';
 
+
 //Custom Modules
 import { SharedModule } from './shared/modules/shared.module'
 import { MillionaireModule } from './modules/millionaire/millionaire.module'
+import {NgParticlesModule} from "ng-particles";
 
 // Custom Components
 import { LayoutComponent } from './components/common/layout/layout.component';
@@ -38,9 +40,11 @@ import { SpinWheelService } from './services/games/spinwheel.service';
     BrowserAnimationsModule,
     RoutingModule,
     HttpClientModule,
+    NgParticlesModule,
     SharedModule,
     MillionaireModule,
   ],
+  exports:[NgParticlesModule],
   providers: [ScriptService, SpinWheelService],
   bootstrap: [AppComponent]
 })

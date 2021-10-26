@@ -15,7 +15,7 @@
       },
       "root": "",
       "sourceRoot": "src",
-      "prefix": "app",
+      "prefix": "royal",
       "architect": {
         "build": {
           "builder": "@angular-devkit/build-angular:browser",
@@ -35,7 +35,8 @@
               "src/styles.scss"
             ],
             "scripts": [
-              "src/assets/js/spinwheel.js"
+              "src/assets/js/spinwheel.js",
+              "node_modules/particles.js/particles.js"
             ]
           },
           "configurations": {

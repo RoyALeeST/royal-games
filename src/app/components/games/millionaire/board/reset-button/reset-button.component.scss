@@ -1,0 +1,63 @@
+.container {
+    width: auto;
+    display: flex;
+    flex-direction: column;
+    //border: 2px solid black;
+  }
+  
+  .btn{
+    margin: 5px auto;
+    border: none;
+    padding: 10px 44px;
+    font-size: 16px;
+    position: relative;
+    width: 150px;
+    cursor: pointer;
+
+    &::before{
+      transition: all 0.85s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+      content: '';
+      width: 50%;
+      height: 100%;
+      background: black;
+      position: absolute;
+      top: 0;
+      left: 0;
+    }
+  
+    & .btn-text{
+      color: white;
+      // check out mdn docs for different types of blend modes. 
+      mix-blend-mode: difference;
+    }
+    & .active {
+      color: rgb(55, 182, 55);
+      font-size: 20px;
+    }
+    &:hover{
+      &::before{
+        background: black;
+        width: 100%;
+      }
+    }
+    //rounded btn styles
+    &.rounded{
+      border-radius:50px;
+      & .text-green{
+        color:#00F0B5;
+        mix-blend-mode: difference;
+      }
+      
+      &::before{
+        border-radius: 50px;
+        width: 25%;
+        background: #00F0B5;
+      }
+      &:hover{
+        &::before{
+        background: #00F0B5;
+          width: 100%;
+        }
+      } 
+    }
+}

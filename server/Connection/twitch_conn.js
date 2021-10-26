@@ -22,7 +22,7 @@ const client = new tmi.Client({
     username: 'royalwong',
     password: 'oauth:rfph1lsls3moxz3sy57kh8ne31m1xc'
   },
-  channels: ['Vekksen']
+  channels: ['Royaleest']
 });
 
 exports.init = function(){
@@ -46,8 +46,10 @@ exports.init = function(){
           client.say(channel, `@Pollosilva SabaPing (❤ω❤)`);
         } else if(command === "alirycal"){
           client.say(channel, `No es gay si es en trio...(❤ω❤)`);
-        } else if(command === "vekksen"){
-          client.say(channel, `@Vekksen se la come (❤ω❤)`);
+        } else if(command === "minecraft"){
+          socket.sockets.emit('minecraft', `mc_event`);
+        }else if(command === "wero"){
+          client.say(channel, `Wero se la come (❤ω❤)`);
         }
       });
 }

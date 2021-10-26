@@ -1,4 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
+import { MillionaireQuestionsService } from 'src/app/services/games/millionaireQuestions.service';
 
 @Component({
   selector: 'royal-questions-board',
@@ -10,7 +11,7 @@ export class QuestionsBoardComponent implements OnInit {
   @Input() question: any;
   @Input() answers: any;
   
-  constructor() { }
+  constructor(private millionaireQuestionsService: MillionaireQuestionsService ) { }
 
   ngOnInit(): void {
   }

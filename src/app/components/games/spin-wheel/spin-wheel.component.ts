@@ -40,4 +40,7 @@ export class SpinWheelComponent implements OnInit {
 
   }
 
+  spinWheel(){
+  }
+
 }

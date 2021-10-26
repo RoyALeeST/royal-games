@@ -1,0 +1,120 @@
+#levels {
+	float: right;
+	list-style: none;
+	margin: 0;
+	padding: 0;
+	color: white;
+	text-align: right;
+	margin-top: 40px;
+	font-size: 1.3em;
+}
+.container {
+    width: auto;
+    display: flex;
+    flex-direction: column;
+    //border: 2px solid black;
+  }
+  
+  .btn{
+    margin: 5px auto;
+    border: none;
+    padding: 10px 44px;
+    font-size: 16px;
+    position: relative;
+    width: 150px;
+    cursor: pointer;
+
+    &::before{
+      transition: all 0.85s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+      content: '';
+      width: 50%;
+      height: 100%;
+      background: black;
+      position: absolute;
+      top: 0;
+      left: 0;
+    }
+  
+    & .btn-text{
+      color: white;
+      // check out mdn docs for different types of blend modes. 
+      mix-blend-mode: difference;
+    }
+    & .active {
+      color: rgb(55, 182, 55);
+      font-size: 20px;
+    }
+    &:hover{
+      &::before{
+        background: black;
+        width: 100%;
+      }
+    }
+    //rounded btn styles
+    &.rounded{
+      border-radius:50px;
+      & .text-green{
+        color:#00F0B5;
+        mix-blend-mode: difference;
+      }
+      
+      &::before{
+        border-radius: 50px;
+        width: 25%;
+        background: #00F0B5;
+      }
+      &:hover{
+        &::before{
+        background: #00F0B5;
+          width: 100%;
+        }
+      } 
+    }
+  }
+  
+
+  .bn13 {
+    cursor: pointer;
+    display: inline-block;
+    padding: 0.65em 1.6em;
+    border: 3px solid #3ebb1f;
+    border-radius: 0.12em;
+    text-decoration: none;
+    font-weight: 300;
+    color: #2e2e2e;
+    text-align: center;
+    transition: all 0.2s;
+    animation: bn13bouncy 5s infinite linear;
+    position: relative;
+    background-color: rgb(238, 234, 30);
+    width: 150px;
+  }
+  
+  .bn13:hover {
+    background-color: rgb(238, 234, 30);
+    color: #000000;
+  }
+  
+  @keyframes bn13bouncy {
+    0% {
+      top: 0em;
+    }
+    40% {
+      top: 0em;
+    }
+    43% {
+      top: -0.9em;
+    }
+    46% {
+      top: 0em;
+    }
+    48% {
+      top: -0.4em;
+    }
+    50% {
+      top: 0em;
+    }
+    100% {
+      top: 0em;
+    }
+  }
