@@ -89,4 +89,8 @@ export class MillionaireQuestionsService {
       return "No correct answer found";
     }
   }
+
+  getCurrentDifficulty(){
+    return this.difficulty;
+  }
 }

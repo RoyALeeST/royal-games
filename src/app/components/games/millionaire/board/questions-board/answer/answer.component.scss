@@ -1,5 +1,5 @@
 
-.noselect {
+.neutral-answer {
     -webkit-touch-callout: none;
       -webkit-user-select: none;
        -khtml-user-select: none;
@@ -7,16 +7,16 @@
           -ms-user-select: none;
               user-select: none;
           -webkit-tap-highlight-color: transparent;
+          background: white;
   }
   
-  button {
+  .answer-btn {
       width: 250px;
       height: 50px;
       cursor: pointer;
       font-size: 20px;
       font-weight: bold;
       color: black;
-      background: white;
       border: 2px solid black;
       box-shadow: 5px 5px 0 black,
           -5px -5px 0 black,
@@ -25,11 +25,29 @@
       transition: 500ms ease-in-out;
   }
   
-  button:hover {
+  .neutral-answer:hover {
       box-shadow: 20px 5px 0 black, -20px -5px 0 black;
       background: rgb(230, 225, 162);
   }
   
-  button:focus {
+  .neutral-answer:focus {
       outline: none;
   }
+
+  .correct-answer{
+      background-color: rgb(45, 175, 45);;
+  }
+
+  .correct-answer:hover {
+    box-shadow: 20px 5px 0 black, -20px -5px 0 black;
+    background: rgb(28, 153, 24);
+    }
+
+    .incorrect-answer{
+        background-color: rgb(230, 57, 57);;
+    }
+  
+    .incorrect-answer:hover {
+      box-shadow: 20px 5px 0 black, -20px -5px 0 black;
+      background: rgb(226, 16, 16);
+      }
