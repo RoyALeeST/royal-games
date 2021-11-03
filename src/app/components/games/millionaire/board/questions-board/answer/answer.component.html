@@ -1,3 +1,8 @@
 <!-- HTML !-->
 <!-- <button class="button-52" role="button">{{answer}}</button> -->
-<button class="name noselect" (click)="emitAnswerSelected()" (mouseenter)="playCursorSfx()">{{answer}}</button>
+<button class="answer-btn" 
+        id="{{'answer-' + answerID}}" 
+        [ngClass]="{'correct-answer': isCorrect(), 
+                    'neutral-answer': !isIncorrect()}" 
+        (click)="emitAnswerSelected()" 
+        (mouseenter)="playCursorSfx()">{{answer}}</button>

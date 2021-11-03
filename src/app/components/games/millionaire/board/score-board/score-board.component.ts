@@ -27,8 +27,8 @@ export class ScoreBoardComponent implements OnInit, OnChanges {
   {value: "100$", difficulty: 1} ,
                         ]
   constructor(private millionaireQuestionsService: MillionaireQuestionsService) { }
+  
   ngOnChanges(changes: SimpleChanges): void {
-    console.log(this.difficulty % 5)
   }
 
   ngOnInit(): void {
