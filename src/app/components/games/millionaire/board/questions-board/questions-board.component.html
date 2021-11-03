@@ -1,6 +1,6 @@
 <div class="question-container">
     <royal-question [question]="question"></royal-question>
 </div>
-<div class="answer-container" *ngFor="let answer of answers">
-    <royal-answer [answer]="answer"></royal-answer>
+<div class="answer-container" *ngFor="let answer of answers; let i = index">
+    <royal-answer [answerID]="i" [answer]="answer"></royal-answer>
 </div>

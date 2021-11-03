@@ -4,9 +4,13 @@
     </div>
     <div class="board">
         <royal-questions-board  [question]="currentQuestion"
-        [answers]="answers"></royal-questions-board>
+                                [answers]="answers"></royal-questions-board>
     </div>
     <div class="lifelines-container">
         <royal-lifelines></royal-lifelines>
+        <div class="next-question-btn">
+        <!-- HTML !-->
+        <button class="button-66" role="button" [disabled]="!isNextQuestionBtnEnabled" (click)="requestQuestion()">Siguiente</button>
+        </div>
     </div>
 </div>

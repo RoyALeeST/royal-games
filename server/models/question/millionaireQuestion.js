@@ -3,7 +3,7 @@ const Schema = mongoose.Schema;
 
 const millionaireQuestionSchema = new Schema({
     question: {type: String, required: true},
-    difficulty: {type: Number, min: 1, max: 10, required: true},
+    difficulty: {type: Number, min: 1, max: 15, required: true},
     correctAnswer: {type: String, required: true},
     invalidAnswers: {type: [{
         type: String
