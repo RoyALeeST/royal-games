@@ -2,6 +2,7 @@ import { Component, Input, OnInit } from '@angular/core';
 import { MillionaireQuestionsService } from 'src/app/services/games/millionaireQuestions.service';
 import { ErrorHandlerService } from 'src/app/shared/services/error-handler.service';
 import { playSound } from '../../../../../../utils/utilities';
+import { AnswerTypesEnum } from 'src/app/models/Enums/AnswerTypesEnum.model';
 
 @Component({
   selector: 'royal-answer',
@@ -13,6 +14,8 @@ export class AnswerComponent implements OnInit {
 
   @Input() answer: string;
   @Input() answerID: any;
+  @Input() questionType: string;
+  eAnswerTypesEnum = AnswerTypesEnum;
 
   private dialogConfig;
   isAnswerClicked: boolean = false;
