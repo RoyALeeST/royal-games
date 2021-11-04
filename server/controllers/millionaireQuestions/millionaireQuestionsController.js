@@ -87,3 +87,14 @@ const MillionaireQuestion = require('../../models/question/millionaireQuestion')
         }
 
 //#endregion POST GET FUNCTIONS
+
+exports.updateTypes = async function(req, res){
+    try {
+        const updatedModels = await MillionaireQuestion.updateMany( {}, 
+                                                                        {type: 'regular'}       
+                                );
+        return res.status(200).send({success: true});
+    } catch (error) {
+        return res.status(422).send(error.message? error.message : error)
+    }
+}

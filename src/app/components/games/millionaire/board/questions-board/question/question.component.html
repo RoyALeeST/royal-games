@@ -1,2 +1,12 @@
 <!-- HTML !-->
 <button class="button-53" role="button">{{question}}</button>
+<ng-container *ngIf="questionType == eAnswerTypesEnum.IMAGE_QUESTION; else second">
+        <div class="question-img-container">
+            <img  [src]="questionImgUrl">
+        </div>
+</ng-container>
+<ng-template #second>
+    <ng-container *ngIf="questionType == eAnswerTypesEnum.IMAGE_ANSWER">
+
+    </ng-container>
+</ng-template>

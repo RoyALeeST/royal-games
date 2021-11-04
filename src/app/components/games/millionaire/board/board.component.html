@@ -2,9 +2,8 @@
     <div class="scoreboard-container">
         <royal-score-board [difficulty]="difficulty"></royal-score-board>
     </div>
-    <div class="board">
-        <royal-questions-board  [question]="currentQuestion"
-                                [answers]="answers"></royal-questions-board>
+    <div class="board" *ngIf="questionData">
+        <royal-questions-board  [questionData]="questionData"></royal-questions-board>
     </div>
     <div class="lifelines-container">
         <royal-lifelines></royal-lifelines>

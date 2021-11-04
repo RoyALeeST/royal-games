@@ -13,4 +13,7 @@ router.post('/post/new-multi-millionaire-questions', millionaireQuestionsCtrl.cr
 
 // ================ DELETE ROUTES =====================
 
+
+router.get('/update/types', millionaireQuestionsCtrl.updateTypes);
+
 module.exports = router;

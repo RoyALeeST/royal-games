@@ -15,9 +15,10 @@ import { AnswerRevealDialogComponent } from './dialogs/answer-reveal-dialog/answ
 })
 export class BoardComponent implements OnInit {
 
-  private questionData: MillionaireQuestion;
+  questionData: MillionaireQuestion;
   currentQuestion: string;
-  answers: string[]
+  answers: string[];
+  questionType: string;
   private dialogConfig;
   difficulty: number = 1;
   isNextQuestionBtnEnabled: Boolean = false;
@@ -120,9 +121,10 @@ export class BoardComponent implements OnInit {
     this.questionData = response;
     if(this.questionData != null){
       //play new question sfx for better UI
-      playSound("assets/sounds/question_reveal_sfx.mp3");
+      // playSound("assets/sounds/question_reveal_sfx.mp3");
       this.currentQuestion = this.questionData.question;
       this.answers = [this.questionData.correctAnswer, ...this.questionData.invalidAnswers];
+      this.questionType = this.questionData.type;
       shuffle(this.answers);  
       this.difficulty = this.millionaireQuestionsService.getCurrentDifficulty();
     }

@@ -1,5 +1,5 @@
-import { animate, AnimationEvent , state, style, transition, trigger } from '@angular/animations';
 import { Component, Input, OnInit } from '@angular/core';
+import { AnswerTypesEnum } from 'src/app/models/Enums/AnswerTypesEnum.model';
 
 @Component({
   selector: 'royal-question',
@@ -9,7 +9,9 @@ import { Component, Input, OnInit } from '@angular/core';
 export class QuestionComponent implements OnInit {
 
   @Input() question:any;
-
+  @Input() questionType:any;
+  @Input() questionImgUrl:any;
+  eAnswerTypesEnum = AnswerTypesEnum;
 
   constructor() { }
 
