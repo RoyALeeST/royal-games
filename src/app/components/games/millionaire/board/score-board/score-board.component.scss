@@ -1,5 +1,7 @@
 #levels {
-	float: right;
+	display: flex;
+  align-items: center;
+  flex-direction: column;
 	list-style: none;
 	margin: 0;
 	padding: 0;
@@ -80,14 +82,16 @@
     border: 3px solid #3d3d3d;
     border-radius: 0.12em;
     text-decoration: none;
-    font-weight: 300;
+    font-weight: 600;
+    font-size: 18px;
     color: #2e2e2e;
     text-align: center;
     transition: all 0.2s;
     animation: bn13bouncy 5s infinite linear;
     position: relative;
-    background-color: rgb(245, 244, 173);
-    width: 150px;
+    background-color: rgb(255, 83, 83);
+    color: white;
+    width: 180px;
   }
 
   .safe-answer{
@@ -96,8 +100,7 @@
   }
   
   .bn13:hover {
-    background-color: rgb(245, 234, 184);
-    color: #000000;
+    background-color: rgb(105, 33, 33);
   }
   
   @keyframes bn13bouncy {
