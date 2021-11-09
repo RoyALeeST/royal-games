@@ -86,12 +86,24 @@ export class BoardComponent implements OnInit {
 
   openAnswerRevealDialog() {
     this.dialog.closeAll();
+    let imageUrl = "";
+    let gifDuration = 9250
+    if(this.isAnswerCorrect){
+      imageUrl = "assets/images/gifs/pepe_answer_reveal_correct.gif"
+    } else {
+      imageUrl = "assets/images/gifs/pepe_answer_reveal_incorrect.gif"
+    }
     const dialogRef = this.dialog.open(AnswerRevealDialogComponent, {
                                       data: { toggleAnswerImageReveal: this.toggleAnswerImageReveal,
-                                              isAnswerCorrect: this.isAnswerCorrect },
+                                              isAnswerCorrect: this.isAnswerCorrect,
+                                              imageUrl: imageUrl,
+                                              gifDelayInMilliseconds: gifDuration
+                                             }
     });
-    
-    // playSound("assets/sounds/game_over_sfx.mp3");
+    let self = this;
+    setTimeout(function(){
+      self.dialog.closeAll();
+    }, gifDuration);
   }
 
   // Request next question from backend
