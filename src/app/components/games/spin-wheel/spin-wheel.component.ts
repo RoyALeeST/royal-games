@@ -29,7 +29,7 @@ export class SpinWheelComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.socketService.listen("spin").subscribe({
+    this.socketService.listen("empireSaysAnswer").subscribe({
       next: this.handleGetAllOptionsResponse.bind(this),
       error: this.handleError.bind(this)
     })

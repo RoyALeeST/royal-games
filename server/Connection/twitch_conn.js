@@ -55,11 +55,12 @@ exports.init = function(){
 }
 
 io.on('connection', (socket) => {
-  console.log('a user connected');
   socket.on('disconnect', () => {
-    console.log('user disconnected');
+    // console.log('user disconnected');
   });
 
-  socket.emit('spin', `from server`);
-
+  socket.on('empireSaysAnswerRevealSelected', (answerToReveal)=>{
+    io.emit("spin", answerToReveal)
+    io.emit("empireSaysAnswer", answerToReveal);
+  })
 });

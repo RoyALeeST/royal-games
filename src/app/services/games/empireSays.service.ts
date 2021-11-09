@@ -3,15 +3,21 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Observable, Subject } from 'rxjs';
 import { EmpireSaysQuestion } from '../../models/games/empireSays.model'
 import { map } from 'rxjs/operators'
+import { SocketService } from '../../shared/services/socket.service';
 
 @Injectable({
   providedIn: 'root'
 })
 export class EmpireSaysService {
+    
     currQuestion: EmpireSaysQuestion;
 
+    // Reveal Answer to user subject
+    private answerReveal = new Subject<any>();
+    answerReveal$ = this.answerReveal.asObservable();
 
-    constructor(private http: HttpClient) { }
+    constructor(private http: HttpClient,
+                private socketSerice: SocketService) { }
 
   //#region GET FUNCTIONS
       /**
@@ -31,4 +37,7 @@ export class EmpireSaysService {
 
   //#endregion
 
+    revealAnswerToPlayer(answerText: string){
+      this.socketSerice.emit("empireSaysAnswerRevealSelected", answerText);
+    }
 }

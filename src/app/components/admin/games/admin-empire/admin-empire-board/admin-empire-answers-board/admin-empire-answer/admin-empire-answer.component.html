@@ -1,0 +1,15 @@
+<div class="scene scene--card ">
+    <div class="card sketchy" (click)="revealAnswer()" [ngClass]="status ? 'is-flipped' : 'hidden'">
+      <div class="card__face card__face--front">
+        <div class="answer-text gold">
+          {{answerData.answer}}
+        </div>
+        <div class="value-text shine">
+          {{answerData.value}}
+        </div>
+      </div>
+      <div class="card__face card__face--back">
+        REVEALED
+      </div>
+    </div>
+  </div>
