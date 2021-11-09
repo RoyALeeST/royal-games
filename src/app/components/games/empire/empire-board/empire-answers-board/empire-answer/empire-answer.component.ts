@@ -1,9 +1,11 @@
 import { Component, Input, OnInit } from '@angular/core';
+import { SocketService } from 'src/app/shared/services/socket.service';
 
 @Component({
   selector: 'royal-empire-answer',
   templateUrl: './empire-answer.component.html',
-  styleUrls: ['./empire-answer.component.scss']
+  styleUrls: ['./empire-answer.component.scss'],
+  providers:[SocketService]
 })
 export class EmpireAnswerComponent implements OnInit {
 
@@ -11,13 +13,15 @@ export class EmpireAnswerComponent implements OnInit {
   @Input() answerId;
   status: boolean = false;
 
-  constructor() { }
+  constructor(private socketSercice: SocketService) { }
 
   ngOnInit(): void {
+    this.socketSercice.listen("empireSaysAnswer").subscribe(
+      (answerSelected)=>{
+        if(answerSelected == this.answerData.answer){
+          this.status = !this.status;
+        }
+      }
+    );
   }
-
-  revealAnswer(){
-    this.status = !this.status;       
-}
-
 }

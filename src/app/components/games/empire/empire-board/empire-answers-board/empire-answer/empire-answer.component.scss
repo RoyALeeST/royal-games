@@ -1,8 +1,6 @@
 .scene {
-  width: 90%;
   height: 100px;
-  margin: 10px 0;
-  perspective: 600px;
+  margin: 10px;
 }
 
 .card {
@@ -80,7 +78,7 @@
 }
 
 .gold {
-  font-size: min(2vw, 3.5vw);;
+  font-size: min(2vw, 3.5vw);
   text-transform: uppercase;
   line-height:1;
   text-align: center;

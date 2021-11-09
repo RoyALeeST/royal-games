@@ -13,6 +13,7 @@ import { EmpireQuestionComponent } from '../../components/games/empire/empire-bo
 import { EmpireAnswersBoardComponent } from '../../components/games/empire/empire-board/empire-answers-board/empire-answers-board.component';
 import { EmpireAnswerComponent } from '../../components/games/empire/empire-board/empire-answers-board/empire-answer/empire-answer.component';
 
+import { EmpireSaysService } from '../../services/games/empireSays.service';
 
 // Custom Services
 
@@ -34,6 +35,10 @@ import { EmpireAnswerComponent } from '../../components/games/empire/empire-boar
     EmpireQuestionComponent,
     EmpireAnswersBoardComponent,
     EmpireAnswerComponent
+  ],
+  providers:
+  [
+    EmpireSaysService,
   ]
 })
 export class EmpireModule { }

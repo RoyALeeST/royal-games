@@ -23,6 +23,7 @@ import { ServerErrorComponent } from './components/common/error-pages/server-err
 import { SpinWheelComponent } from './components/games/spin-wheel/spin-wheel.component';
 import { ScriptService } from './shared/services/script-loader.service';
 import { SpinWheelService } from './services/games/spinwheel.service';
+import { EmpireSaysService } from './services/games/empireSays.service';
 
 @NgModule({
   declarations: [
@@ -46,7 +47,7 @@ import { SpinWheelService } from './services/games/spinwheel.service';
     EmpireModule,
   ],
   exports:[NgParticlesModule],
-  providers: [ScriptService, SpinWheelService],
+  providers: [ScriptService, SpinWheelService, EmpireSaysService],
   bootstrap: [AppComponent],
   schemas: [
     CUSTOM_ELEMENTS_SCHEMA

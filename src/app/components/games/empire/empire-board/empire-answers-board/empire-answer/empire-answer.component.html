@@ -1,5 +1,5 @@
 <div class="scene scene--card ">
-    <div class="card sketchy" (click)="revealAnswer()" [ngClass]="status ? 'is-flipped' : 'hidden'">
+    <div class="card sketchy" [ngClass]="status ? 'is-flipped' : 'hidden'">
       <div class="card__face card__face--front">#{{answerId}}</div>
       <div class="card__face card__face--back">
           <div class="answer-text gold">

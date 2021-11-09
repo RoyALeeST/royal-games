@@ -16,15 +16,15 @@ export class AppComponent  implements OnInit {
 
   }
   ngOnInit(): void {
-    this.socketService.listen("spin").subscribe({
-      next: this.handleGetAllOptionsResponse.bind(this),
+    this.socketService.listen("empireSaysAnswer").subscribe({
+      next: this.handleRevealEmpireAnswer.bind(this),
       error: this.handleError.bind(this)
     })
     this.invokeParticles();
 
   }
   
-  handleGetAllOptionsResponse(response){
+  handleRevealEmpireAnswer(response){
     console.log(response)
   }
 
