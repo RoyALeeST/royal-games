@@ -1,0 +1,11 @@
+.answers-container{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    padding: 30px;
+}
+
+.answer-wrapper{
+    margin: 0;
+    width: 50%;
+}

@@ -1,9 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Observable, Subject } from 'rxjs';
-import { SpinWheelOption } from '../../models/games/spinwheel.model';
-import { MillionaireQuestion } from 'src/app/models/games/millionaireQuestion.model';
-import { map, filter, tap } from 'rxjs/operators'
+import { map } from 'rxjs/operators'
 
 @Injectable({
   providedIn: 'root'
@@ -13,6 +11,9 @@ export class MillionaireQuestionsService {
 
   private answerSelected = new Subject<any>();
   answerSelected$ = this.answerSelected.asObservable();
+
+  private newQuestionRequested = new Subject<any>();
+  newQuestionRequested$ = this.newQuestionRequested.asObservable();
 
   private fiftyLifelineSelected = new Subject<any>();
   fiftyLifelineSelected$ = this.fiftyLifelineSelected.asObservable();
@@ -51,8 +52,8 @@ export class MillionaireQuestionsService {
 
   //#region Subjetcts
   // Service message commands
-  announceNewQuestion(millionaireQuestion: MillionaireQuestion) {
-    this.answerSelected.next(millionaireQuestion);
+  announceNewQuestion() {
+    this.newQuestionRequested.next();
   }
 
   announceAnswerSelected(selectedOption) {

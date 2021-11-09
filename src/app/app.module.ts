@@ -9,6 +9,7 @@ import { AppComponent } from './app.component';
 //Custom Modules
 import { SharedModule } from './shared/modules/shared.module'
 import { MillionaireModule } from './modules/millionaire/millionaire.module'
+import { EmpireModule } from './modules/empire/empire.module';
 import {NgParticlesModule} from "ng-particles";
 
 // Custom Components
@@ -22,7 +23,6 @@ import { ServerErrorComponent } from './components/common/error-pages/server-err
 import { SpinWheelComponent } from './components/games/spin-wheel/spin-wheel.component';
 import { ScriptService } from './shared/services/script-loader.service';
 import { SpinWheelService } from './services/games/spinwheel.service';
-
 
 @NgModule({
   declarations: [
@@ -43,6 +43,7 @@ import { SpinWheelService } from './services/games/spinwheel.service';
     NgParticlesModule,
     SharedModule,
     MillionaireModule,
+    EmpireModule,
   ],
   exports:[NgParticlesModule],
   providers: [ScriptService, SpinWheelService],

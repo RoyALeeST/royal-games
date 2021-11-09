@@ -10,6 +10,7 @@ const twitchConnection =  require('./Connection/twitch_conn');
     const customerRoutes = require('./routes/customer/customer');
     const spinWheelRoutes = require('./routes/SpinWheel/spinwheel');
     const millionaireQuestionRoutes = require('./routes/millionaireQuestions/millionaireQuestions');
+    const empireSaysRoutes = require('./routes/empire-says/empireSays');
 
 //#endregion
 
@@ -40,6 +41,7 @@ app.use(cookieParser()); // Parsing application/json
 app.use(ROOT_URL + 'customers', customerRoutes);
 app.use(ROOT_URL + 'spinwheel', spinWheelRoutes);
 app.use(ROOT_URL + 'millionaire', millionaireQuestionRoutes);
+app.use(ROOT_URL + 'empire-says', empireSaysRoutes);
 
 // Get environment port
 const PORT = process.env.PORT || 3001;

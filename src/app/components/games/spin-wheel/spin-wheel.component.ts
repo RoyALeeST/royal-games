@@ -15,13 +15,17 @@ export class SpinWheelComponent implements OnInit {
 
   twitch_instruction: Observable<any>;
   currentDoc: string;
+  isWheelLoaded: boolean = false;
   private _docSub: Subscription;
 
   constructor(private spinwheelService: SpinWheelService,
               private socketService: SocketService) { }
 
   loadWheel(spinWheelOptions: any[]){
-    initWheel(spinWheelOptions);
+    if(!this.isWheelLoaded){
+      initWheel(spinWheelOptions);
+      this.isWheelLoaded = true;
+    }
   }
 
   ngOnInit() {
