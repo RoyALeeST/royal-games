@@ -1,0 +1,5 @@
+<div class="answers-container">
+    <div class="answer-wrapper" *ngFor="let answer of answers; let i = index">
+        <royal-empire-answer [answerData]="answer" [answerId]="i+1"></royal-empire-answer>
+    </div>
+</div>
