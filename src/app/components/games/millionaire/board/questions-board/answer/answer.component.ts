@@ -33,12 +33,19 @@ export class AnswerComponent implements OnInit {
   ngOnInit(): void {
     this.millionaireQuestionsService.answerSelected$.subscribe(
       (isAnswerCorrect) => {
-        this.isAnswerClicked = true;
+        setTimeout(()=>{this.isAnswerClicked = true; }, 1000)
+        
       }, 
       (error)=>{
         this.handleError(error)
       }
     )
+
+    this.millionaireQuestionsService.newQuestionRequested$.subscribe(
+      ()=>{
+        this.isAnswerClicked = false;
+      }
+    );
   }
 
   isCorrect(): boolean {

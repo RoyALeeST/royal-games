@@ -61,16 +61,8 @@ export class BoardComponent implements OnInit {
         this.handleError(error);
       },
     )
-
-    this.millionaireQuestionsService.fiftyLifelineSelected$.subscribe(
-      (filteredAnswers) => {
-        this.answers = filteredAnswers;
-      },
-      (error) => {
-        this.handleError(error);
-      }
-    )
   }
+  
   handleCorrectAnswerSelected(isAnswerCorrect) {
     this.toggleAnswerImageReveal = true; // reveal answer image
     this.isAnswerCorrect = isAnswerCorrect;

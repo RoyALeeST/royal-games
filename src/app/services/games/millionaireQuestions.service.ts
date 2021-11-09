@@ -14,6 +14,9 @@ export class MillionaireQuestionsService {
   private answerSelected = new Subject<any>();
   answerSelected$ = this.answerSelected.asObservable();
 
+  private newQuestionRequested = new Subject<any>();
+  newQuestionRequested$ = this.newQuestionRequested.asObservable();
+
   private fiftyLifelineSelected = new Subject<any>();
   fiftyLifelineSelected$ = this.fiftyLifelineSelected.asObservable();
 
@@ -51,8 +54,8 @@ export class MillionaireQuestionsService {
 
   //#region Subjetcts
   // Service message commands
-  announceNewQuestion(millionaireQuestion: MillionaireQuestion) {
-    this.answerSelected.next(millionaireQuestion);
+  announceNewQuestion() {
+    this.newQuestionRequested.next();
   }
 
   announceAnswerSelected(selectedOption) {

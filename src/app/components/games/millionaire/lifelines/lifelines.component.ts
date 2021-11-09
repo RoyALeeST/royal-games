@@ -7,7 +7,7 @@ import { Component, OnInit } from '@angular/core';
 })
 export class LifelinesComponent implements OnInit {
 
-  lifelines: any[] = [ "50/50", "Llama a un amigo", "Pregunta al chat" ]
+  lifelines: any[] = [ "50/50", "Llama a un amigo", "Pregunta al chat"]
   
   constructor() { }
 

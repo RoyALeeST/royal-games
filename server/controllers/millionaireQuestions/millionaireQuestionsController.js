@@ -22,7 +22,6 @@ const MillionaireQuestion = require('../../models/question/millionaireQuestion')
          exports.findMillionaireQuestionByDifficulty = async function(req, res){
             try {
                 const questionDifficulty = req.params.difficulty;
-        
                 // Get the count of all questions
                 MillionaireQuestion.count({difficulty: questionDifficulty}).exec(function (err, count) {
 
@@ -38,7 +37,7 @@ const MillionaireQuestion = require('../../models/question/millionaireQuestion')
                 })
                 
             } catch (error) {
-                return res.status(422).send({error:'error'})
+                return res.status(422).send({error: error})
             }
         }
 //#endregion END GET FUNCTIONS
@@ -52,8 +51,8 @@ const MillionaireQuestion = require('../../models/question/millionaireQuestion')
      */
      exports.createQuestion = async function(req, res){
         try {
-            const { question, difficulty, correctAnswer, invalidAnswers } = req.body;
-            let millionaireQuestion = MillionaireQuestion({ difficulty, correctAnswer, question, invalidAnswers });
+            const { question, difficulty, correctAnswer, invalidAnswers, type, questionImgUrl  } = req.body;
+            let millionaireQuestion = MillionaireQuestion({ difficulty, correctAnswer, question, invalidAnswers, type, questionImgUrl });
             const savedQuestion = await millionaireQuestion.save();
             if(savedQuestion)
             {
