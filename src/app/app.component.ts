@@ -1,7 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 import { SocketService } from './shared/services/socket.service'
-import { ParticlesConfig } from './particles-config';
-import * as ParticlesConfigJSON  from './particles-config.json';
 
 declare let particlesJS: any; // Required to be properly interpreted by TypeScript.
 
@@ -16,20 +14,6 @@ export class AppComponent  implements OnInit {
 
   }
   ngOnInit(): void {
-    this.socketService.listen("empireSaysAnswer").subscribe({
-      next: this.handleRevealEmpireAnswer.bind(this),
-      error: this.handleError.bind(this)
-    })
-    this.invokeParticles();
-
-  }
-  
-  handleRevealEmpireAnswer(response){
-    console.log(response)
-  }
-
-  handleError(error){
-    console.log(error)
 
   }
     

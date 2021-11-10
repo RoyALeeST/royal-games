@@ -59,8 +59,34 @@ io.on('connection', (socket) => {
     // console.log('user disconnected');
   });
 
-  socket.on('empireSaysAnswerRevealSelected', (answerToReveal)=>{
-    io.emit("spin", answerToReveal)
-    io.emit("empireSaysAnswer", answerToReveal);
+  socket.on('empireSaysAnswerRevealSelected', (answerData)=>{
+    // io.emit("spin", answerToReveal)
+    io.emit("empireSaysAnswer", answerData);
   })
+
+  socket.on('empireSaysWrongAnswerSource', (data)=>{
+    io.emit("empireSaysWrongAnswerServer", data.userId);
+  })
+
+  socket.on('addPointsToPlayer', (playerNumber)=>{
+    io.emit("addPointsToPlayer", playerNumber);
+  })
+  
+  socket.on("buzzerRoundWrongAnswer", (data) => {
+    io.emit("buzzerRoundWrongAnswer", data);
+  })
+
+  socket.on("gameReset", (data) => {
+    io.emit("gameReset", data);
+  })
+
+  socket.on("revealEmpireSayQuestion", (data) => {
+    io.emit("revealEmpireSayQuestion", data);
+  })
+  
+  
 });
+
+exports.emitNewQUestionRequested = function(questionData){
+  io.emit("newEmpireSaysQuestionRequested", questionData);
+}

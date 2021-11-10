@@ -1,6 +1,6 @@
 .scene {
     height: 100px;
-    margin: 10px;
+    margin: 20px 10px;
     }
   
   .card {
@@ -50,6 +50,10 @@
   .value-text{
     flex:1;
     min-width: 100px;
+    max-height: 100px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
     text-align: center;
     padding: 10px;
   }
@@ -90,39 +94,16 @@
     background-position: left;
   
   }
-  @keyframes shine {
-    to{background-position: right}
-   
-  }
-  
-  .shine, .chrome {
-      font-size: 50px;
-      margin: 0 auto;
-      font-weight: bold;
-  }
-  
-  .shine {
-      background: #222 -webkit-gradient(linear, left top, right top, from(#222), to(#222), color-stop(0.5, #fff)) 0 0 no-repeat;
-      -webkit-background-size: 150px;
-      color: rgb(182, 182, 182);
-      -webkit-background-clip: text;
-      -webkit-animation-name: shine;
-      -webkit-animation-duration: 2;
-      -webkit-animation-iteration-count: infinite;
-      text-shadow: 0 0px 0px rgba(255, 255, 255, 0.5);
-    @-webkit-keyframes shine {
-      0%, 10% {
-        background-position: -1000px;
-      }
-      20% {
-        background-position: top left;
-      }
-      90% {
-        background-position: top right;
-      }
-      100% {
-        background-position: 1000px;
-      }
+
+  .card-face-front{
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+
+    .shine{
+      flex: 1;
+      color: rgb(168, 168, 168);
     }
   }
-  

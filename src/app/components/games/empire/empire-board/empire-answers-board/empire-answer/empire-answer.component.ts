@@ -1,5 +1,6 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { SocketService } from 'src/app/shared/services/socket.service';
+import { playSound } from 'src/app/utils/utilities';
 
 @Component({
   selector: 'royal-empire-answer',
@@ -13,13 +14,14 @@ export class EmpireAnswerComponent implements OnInit {
   @Input() answerId;
   status: boolean = false;
 
-  constructor(private socketSercice: SocketService) { }
+  constructor(private socketService: SocketService) { }
 
   ngOnInit(): void {
-    this.socketSercice.listen("empireSaysAnswer").subscribe(
-      (answerSelected)=>{
-        if(answerSelected == this.answerData.answer){
+    this.socketService.listen("empireSaysAnswer").subscribe(
+      (data: any)=>{
+        if(data.answerData.answer == this.answerData.answer){
           this.status = !this.status;
+          playSound("assets/sounds/empire_says_correct_answer_sfx.mp3");
         }
       }
     );

@@ -1,8 +1,11 @@
 <div class="board-container">
-    <div class="question-container">
-        <royal-empire-question [question]="questionData.question"></royal-empire-question>
+    <div class="board-header">            
+        <royal-empire-score-board [usersData]="usersData" [questionData]="questionData"></royal-empire-score-board>
     </div>
     <div class="answers-board-container">
         <royal-empire-answers-board [answers]="questionData.answers"></royal-empire-answers-board>
+    </div>
+    <div class="wrong-answer-image" *ngIf="isWrongAnswerImageVisible">
+        <img [src]="imgUrl">
     </div>
 </div>
