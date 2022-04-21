@@ -8,6 +8,7 @@ import { ServerErrorComponent } from '../components/common/error-pages/server-er
 const routes: Routes = [
   { path: 'home', component: HomeComponent},
   { path: "user", loadChildren: () => import ("../modules/user/user.module").then(m => m.UserModule) },
+  { path: "auth", loadChildren: () => import ("../modules/user/auth.module").then(m => m.UserAuthModule) },
   { path: "admin", loadChildren: () => import ("../modules/admin/admin.module").then(m => m.AdminModule) },
   { path: '404', component: NotFoundComponent}, 
   { path: '500', component: ServerErrorComponent },

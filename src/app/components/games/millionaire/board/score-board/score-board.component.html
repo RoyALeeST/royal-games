@@ -1,5 +1,5 @@
 <div id="levels">
-    <h1>{{difficulty}}</h1>
+    <h1>LVL: {{difficulty}}</h1>
     <li *ngFor="let reward of moneyrewards">
         <div *ngIf="reward.difficulty != difficulty; else currReward">
             <button class="btn">

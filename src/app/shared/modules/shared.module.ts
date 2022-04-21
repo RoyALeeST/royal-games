@@ -6,22 +6,18 @@ import { SuccessDialogComponent } from '../components/dialogs/success-dialog/suc
 import { ErrorDialogComponent } from '../components/dialogs/error-dialog/error-dialog.component';
 
 @NgModule({
-  declarations: [
-    SuccessDialogComponent,
-    ErrorDialogComponent,
-  ],
-  imports: [
-    CommonModule,
-    MaterialModule,
-  ],
-  exports: [
-    MaterialModule,
-    SuccessDialogComponent,
-    ErrorDialogComponent,
-  ],
-  entryComponents: [
-    SuccessDialogComponent,
-    ErrorDialogComponent
-  ]
+    declarations: [
+        SuccessDialogComponent,
+        ErrorDialogComponent,
+    ],
+    imports: [
+        CommonModule,
+        MaterialModule,
+    ],
+    exports: [
+        MaterialModule,
+        SuccessDialogComponent,
+        ErrorDialogComponent,
+    ]
 })
 export class SharedModule { }

@@ -2,6 +2,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule, CUSTOM_ELEMENTS_SCHEMA  } from '@angular/core';
 import { HttpClientModule } from '@angular/common/http';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations'; // Angular material Browser Animations
+import { FlexLayoutModule } from "@angular/flex-layout";
 
 import { AppComponent } from './app.component';
 
@@ -35,7 +36,7 @@ import { EmpireSaysService } from './services/games/empireSays.service';
     NotFoundComponent,
     ServerErrorComponent,
     SpinWheelComponent,
-  ],
+    ],
   imports: [
     BrowserModule,
     BrowserAnimationsModule,
@@ -45,6 +46,7 @@ import { EmpireSaysService } from './services/games/empireSays.service';
     SharedModule,
     MillionaireModule,
     EmpireModule,
+    FlexLayoutModule,
   ],
   exports:[NgParticlesModule],
   providers: [ScriptService, SpinWheelService, EmpireSaysService],

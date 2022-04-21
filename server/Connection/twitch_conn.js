@@ -3,7 +3,7 @@ const server = require('http').createServer();
 const socket = require('socket.io');
 var io = socket(server, {
   cors: {
-    origin: "http://localhost:4200",
+    origin: "https://localhost:4200",
     credentials: true
   }
 });
