@@ -7,6 +7,7 @@ import { shuffle } from '../../../../utils/utilities';
 import { LoserDialogComponent } from './dialogs/loser-dialog/loser-dialog.component';
 import { playSound } from '../../../../utils/utilities';
 import { AnswerRevealDialogComponent } from './dialogs/answer-reveal-dialog/answer-reveal-dialog.component';
+import { SocketService } from 'src/app/shared/services/socket.service';
 
 @Component({
   selector: 'royal-board',
@@ -24,9 +25,11 @@ export class BoardComponent implements OnInit {
   isNextQuestionBtnEnabled: Boolean = false;
   toggleAnswerImageReveal: boolean = false; // Toggles image to reveal answer display
   isAnswerCorrect: boolean = false; // Boolean to be passed to answer image component so we know which gif to display CORRECT or INCORRECT
-
+  playerUsername: String = "";
+  
   constructor(private millionaireQuestionsService: MillionaireQuestionsService,
               public dialog: MatDialog,
+              private socketService: SocketService,
               private errorService: ErrorHandlerService) { 
                 this.dialogConfig = {
                   height: '200px',
@@ -34,7 +37,22 @@ export class BoardComponent implements OnInit {
                   disableClose: true,
                   data: { }
                 }
+
+                this.socketService.listen("millionaire_newPlayer").subscribe(
+                  (username: string)=>{
+                    if(username != null  && username != this.playerUsername){
+                      this.playerUsername = username;
+                    }
+                  }
+                )
+
+                this.millionaireQuestionsService.playerChanged$.subscribe(
+                  (username: string)=>{
+                    this.playerUsername = username;
+                  }
+                );
   }
+
 
   ngOnInit(): void {
 

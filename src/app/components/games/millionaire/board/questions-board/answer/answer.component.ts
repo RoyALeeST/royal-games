@@ -1,4 +1,4 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, ElementRef, Input, OnInit, ViewChild } from '@angular/core';
 import { MillionaireQuestionsService } from 'src/app/services/games/millionaireQuestions.service';
 import { ErrorHandlerService } from 'src/app/shared/services/error-handler.service';
 import { playSound } from '../../../../../../utils/utilities';
@@ -12,14 +12,14 @@ import { AnswerTypesEnum } from 'src/app/models/Enums/AnswerTypesEnum.model';
 export class AnswerComponent implements OnInit {
 
 
-  @Input() answer: string;
+  @Input() answer: any;
   @Input() answerID: any;
   @Input() questionType: string;
   eAnswerTypesEnum = AnswerTypesEnum;
 
   private dialogConfig;
   isAnswerClicked: boolean = false;
-
+  @ViewChild('answer') search: ElementRef;
 
   constructor(private millionaireQuestionsService: MillionaireQuestionsService, private errorService: ErrorHandlerService) {
     this.dialogConfig = {
@@ -28,12 +28,15 @@ export class AnswerComponent implements OnInit {
       disableClose: true,
       data: { }
     }
+    console.log(this.answer)
   }
 
   ngOnInit(): void {
     this.millionaireQuestionsService.answerSelected$.subscribe(
       (isAnswerCorrect) => {
-        setTimeout(()=>{this.isAnswerClicked = true; }, 1000)
+        setTimeout(()=>{
+          this.isAnswerClicked = true; 
+        }, 10000)
         
       }, 
       (error)=>{
@@ -50,12 +53,12 @@ export class AnswerComponent implements OnInit {
 
   isCorrect(): boolean {
     // mark the correct answer regardless of which option is selected once answered
-    return this.answer  === this.millionaireQuestionsService.getCorrectAnswer() && this.isAnswerClicked;
+    return this.answer.answer  === this.millionaireQuestionsService.getCorrectAnswer() && this.isAnswerClicked;
   }
   
   isIncorrect(): boolean {
     // mark incorrect answer if selected
-    return this.answer !== this.millionaireQuestionsService.getCorrectAnswer() && this.isAnswerClicked;
+    return this.answer.answer !== this.millionaireQuestionsService.getCorrectAnswer() && this.isAnswerClicked;
   }
 
 

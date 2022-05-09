@@ -20,7 +20,7 @@ export class AdminEmpireAnswerComponent implements OnInit {
 
   revealAnswer(){
     this.status = !this.status;
-    this.empireSaysService.revealAnswerToPlayer(this.answerData.answer);
-}
+    this.empireSaysService.revealAnswerToPlayer(this.answerData);
+  }
 
 }

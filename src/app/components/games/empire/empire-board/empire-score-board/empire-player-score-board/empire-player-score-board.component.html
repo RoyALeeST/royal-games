@@ -1,0 +1,9 @@
+<img class="profile-pic" [src]="userData.profilePic">
+
+<div class="hit-the-floor">{{userData.score}}</div>
+
+<div class="lifes-container">
+    <ng-container *ngFor="let life of userData.lifes">
+        <img class="life-img" [src]="lifeImgUrl">
+    </ng-container>
+</div>

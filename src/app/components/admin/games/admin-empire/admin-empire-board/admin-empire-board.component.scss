@@ -1,0 +1,106 @@
+
+.wrong-answer-btn-container{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.incorrect-answer-buttons{
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+}
+
+.button-66 {
+    background-color: #ff5656;
+    border-radius: 4px;
+    border: 0;
+    box-shadow: rgba(1,60,136,.5) 0 -1px 3px 0 inset,rgba(0,44,97,.1) 0 3px 6px 0;
+    box-sizing: border-box;
+    color: #fff;
+    cursor: pointer;
+    display: inherit;
+    font-family: "Space Grotesk",-apple-system,system-ui,"Segoe UI",Roboto,Helvetica,Arial,sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol";
+    font-size: 18px;
+    font-weight: 700;
+    line-height: 24px;
+    margin: 0;
+    min-height: 56px;
+    min-width: 120px;
+    padding: 16px 20px;
+    position: relative;
+    text-align: center;
+    user-select: none;
+    -webkit-user-select: none;
+    touch-action: manipulation;
+    vertical-align: baseline;
+    transition: all .2s cubic-bezier(.22, .61, .36, 1);
+  }
+  
+  .button-66:hover {
+    background-color: #e92d2d;
+    transform: translateY(-2px);
+  }
+  
+  @media (min-width: 768px) {
+    .button-66 {
+      padding: 16px 44px;
+      min-width: 150px;
+    }
+  }     
+
+  .wrong-answer-image{
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    /* bring your own prefixes */
+    transform: translate(-50%, -50%);
+}
+
+.board-header{
+    display: flex;
+    justify-content: space-evenly;
+    flex-direction: row;
+}
+
+.score-container{
+    max-width: 20%;
+}
+
+.question-container{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.incorrect-answer-buttons{
+  height: 250px;
+}
+
+.player-1-buttons, .player-2-buttons, .game-buttons{
+  height: inherit;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  align-items: center;
+}
+
+.player-1-buttons{
+  .btn{
+    background-color: rgb(58, 104, 173);
+  }
+}
+
+.player-2-buttons{
+  .btn{
+    background-color: rgb(199, 136, 65);
+  }
+}
+
+.game-reset-btn-container{
+  display: flex;
+  justify-content: center;
+  .btn{
+    background-color: rgb(58, 0, 0);
+  }
+}

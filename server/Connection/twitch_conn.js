@@ -3,10 +3,11 @@ const server = require('http').createServer();
 const socket = require('socket.io');
 var io = socket(server, {
   cors: {
-    origin: "http://localhost:4200",
+    origin: "https://localhost:4200",
     credentials: true
   }
 });
+
 
 server.listen(3000, () => {
     console.log("Socket IO is lestineng on port 3000");
@@ -30,10 +31,15 @@ exports.init = function(){
 
     client.on('message', (channel, tags, message, self) => {
 
+      // emit message to client side so it can handle the message properly on any game
+        io.emit("chat_message", {message: message, username: tags.username });
+
+        // if not a command return;
         if(self || !message.startsWith('!')) {
           return;
         }
-      
+
+        // else do soemthign with command
         const args = message.slice(1).split(' ');
         const command = args.shift().toLowerCase();
         console.log(command);
@@ -59,8 +65,38 @@ io.on('connection', (socket) => {
     // console.log('user disconnected');
   });
 
-  socket.on('empireSaysAnswerRevealSelected', (answerToReveal)=>{
-    io.emit("spin", answerToReveal)
-    io.emit("empireSaysAnswer", answerToReveal);
+  socket.on('empireSaysAnswerRevealSelected', (answerData)=>{
+    // io.emit("spin", answerToReveal)
+    io.emit("empireSaysAnswer", answerData);
   })
+
+  socket.on('empireSaysWrongAnswerSource', (data)=>{
+    io.emit("empireSaysWrongAnswerServer", data.userId);
+  })
+
+  socket.on('addPointsToPlayer', (playerNumber)=>{
+    io.emit("addPointsToPlayer", playerNumber);
+  })
+  
+  socket.on("buzzerRoundWrongAnswer", (data) => {
+    io.emit("buzzerRoundWrongAnswer", data);
+  })
+
+  socket.on("gameReset", (data) => {
+    io.emit("gameReset", data);
+  })
+
+  socket.on("revealEmpireSayQuestion", (data) => {
+    io.emit("revealEmpireSayQuestion", data);
+  })
+
+  socket.on("millionaire_newPlayer", (data) => {
+    io.emit("millionaire_newPlayer", data);
+  })
+  
+  
 });
+
+exports.emitNewQUestionRequested = function(questionData){
+  io.emit("newEmpireSaysQuestionRequested", questionData);
+}

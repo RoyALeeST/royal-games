@@ -1,41 +1,26 @@
+.board-wrapepr{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+}
+
+.player-name-title{
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  height: 10%;
+  align-items: center;
+}
+
 .content{
     display: flex;
     align-items: center;
     justify-content: space-evenly;
     height: 100%;
 }
-.to-top{
-  cursor: pointer;
-	color:rgb(61, 61, 61);
-	padding-top:2.8em;
-	display:inline-block;/* or block */
-	position:relative;
-	border-color:white;
-	text-decoration:none;
-	transition:all .3s ease-out;
-}
-.to-top:before{
-	content:'▲';
-	font-size:1.5em;
-	position:absolute;
-	top:0;
-	left:50%;
-	margin-left:-.7em;
-	border:solid .13em rgb(148, 52, 52);
-	border-radius:10em;
-	width:1.4em;
-	height:1.4em;
-	line-height:1.3em;
-	border-color:inherit;
-	transition:transform .5s ease-in;
-}
-.to-top:hover{
-	color:rgb(37, 70, 255);
-	border-color:rgb(72, 33, 245);
-}
-.to-top:hover:before{
-	transform: rotate(360deg);
-}
+
 
 .lifelines-container{
 	margin-top: 10px;
@@ -105,3 +90,53 @@
   border: black 1px solid;
   background-color: white;
 }
+/*==============================================*/
+/*============== USERNAME STYLING ==============*/
+/*==============================================*/
+@import url(https://fonts.googleapis.com/css?family=Open+Sans);
+
+
+
+.area {
+  text-align: center;
+  font-size: 5em;
+  color: #fff;
+  font-weight: 700;
+  text-shadow: 0px 0px 5px #fff, 0px 0px 7px #fff;
+}
+
+.area-animated {
+  text-align: center;
+  font-size: 5em;
+  color: #fff;
+  font-weight: 700;
+  animation: blur 2s ease-out infinite;
+  text-shadow: 0px 0px 5px #fff, 0px 0px 7px #fff;
+}
+
+@keyframes blur {
+  from {
+    text-shadow:0px 0px 10px #fff,
+      0px 0px 10px #fff, 
+      0px 0px 25px #fff,
+      0px 0px 25px #fff,
+      0px 0px 25px #fff,
+      0px 0px 25px #fff,
+      0px 0px 25px #fff,
+      0px 0px 25px #fff,
+      0px 0px 50px #fff,
+      0px 0px 50px #fff,
+      0px 0px 50px #7B96B8,
+      0px 0px 150px #7B96B8,
+      0px 10px 100px #7B96B8,
+      0px 10px 100px #7B96B8,
+      0px 10px 100px #7B96B8,
+      0px 10px 100px #7B96B8,
+      0px -10px 100px #7B96B8,
+      0px -10px 100px #7B96B8;
+  }
+}
+
+
+
+

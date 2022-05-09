@@ -1,3 +1,7 @@
+<div *ngIf="playerUsername != ''" class="player-name-title">
+    <span class="area">⚠</span><div class="area-animated"> {{playerUsername}} </div><span class="area">⚠</span>
+</div>
+
 <div class="content">
     <div class="scoreboard-container">
         <royal-score-board [difficulty]="difficulty"></royal-score-board>

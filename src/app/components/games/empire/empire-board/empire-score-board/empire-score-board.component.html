@@ -1,0 +1,16 @@
+<div class="score-board-container">
+    <div class="score-container">
+        <royal-empire-player-score-board [userData]="usersData[0]" ></royal-empire-player-score-board>
+    </div>
+    <div class="question-score-container">
+        <div class="question-container">
+            <royal-empire-question [question]="questionData.question"></royal-empire-question>
+        </div>
+        <div class="current-round-score">
+            <h1>{{score}}</h1>
+        </div>
+    </div>
+    <div class="score-container">
+        <royal-empire-player-score-board [userData]="usersData[1]" ></royal-empire-player-score-board>
+    </div>
+</div>

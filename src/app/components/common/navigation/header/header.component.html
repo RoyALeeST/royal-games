@@ -1,20 +1,35 @@
-<mat-toolbar color="primary">
-  <div>
-      <button mat-icon-button (click)="onToggleSidenav()">
-          <mat-icon>menu</mat-icon>
-      </button>
-  </div>
-  <div>
-      <a routerLink="/home">Home</a>
-  </div>
-  <div>
-      <ul class="navigation-items">
-        <li>
-            <a routerLink="/user/users">Owner Actions</a>
-        </li>
-          <li>
-              <a routerLink="/account">Account Actions</a>
-          </li>
-      </ul>
-  </div>
+<mat-toolbar fxLayout="row" color="primary">
+    <span fxFlex>Royaleest</span>
+    <div>
+
+    </div>
+    <button mat-button *ngFor="let item of menuItems"  routerLink={{item.redirectUrl}} 
+        [fxShow]="(item.showOnDesktop && !(item.label == 'Login' && isLoggedIn() )) " 
+        [fxShow.xs]="item.showOnMobile && !(item.label == 'Login' && isLoggedIn() )"
+        [fxShow.sm]="item.showOnTablet && !(item.label == 'Login' && isLoggedIn() )">
+        <mat-icon class="mr">{{item.icon}}</mat-icon>
+        {{item.label}}
+    </button>
+    <ng-container>
+        <button mat-icon-button [matMenuTriggerFor]="dropMenu">
+            <mat-icon>more_vert</mat-icon>
+        </button>
+        <mat-menu #dropMenu="matMenu">
+            <ng-container *ngFor="let item of menuItems">
+                <div [fxShow]="!item.showOnDesktop" 
+                     [fxShow.sm]="!item.showOnTablet" 
+                     [fxShow.xs]="!item.showOnMobile">
+                    <button mat-menu-item>
+                        <mat-icon class="mr">{{item.icon}}</mat-icon>
+                        {{item.label}}
+                    </button>
+                    <mat-divider></mat-divider>
+                </div>
+            </ng-container>
+        </mat-menu>
+    </ng-container>
+    <ng-container>
+        <button mat-fab class="image-btn-profile" [matMenuTriggerFor]="dropMenu" [style.backgroundImage]="'url(' + profilePicUrl + ')'">
+        </button>
+    </ng-container>
 </mat-toolbar>

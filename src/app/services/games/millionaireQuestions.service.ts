@@ -9,6 +9,9 @@ import { map } from 'rxjs/operators'
 export class MillionaireQuestionsService {
   currQuestion: any;
 
+  private playerChanged = new Subject<any>();
+  playerChanged$ = this.playerChanged.asObservable();
+
   private answerSelected = new Subject<any>();
   answerSelected$ = this.answerSelected.asObservable();
 
@@ -26,7 +29,7 @@ export class MillionaireQuestionsService {
 
   difficulty: number = 1;
   hasLost: Boolean = false;
-
+  playerUsername: string = "";
 
 
     constructor(private http: HttpClient) { }
@@ -51,9 +54,15 @@ export class MillionaireQuestionsService {
   //#endregion
 
   //#region Subjetcts
+
   // Service message commands
   announceNewQuestion() {
     this.newQuestionRequested.next();
+  }
+
+  announceNewPlayer(username: string) {
+    this.playerUsername = username;
+    this.playerChanged.next(username);
   }
 
   announceAnswerSelected(selectedOption) {
@@ -89,6 +98,10 @@ export class MillionaireQuestionsService {
     } else {
       return "No correct answer found";
     }
+  }
+
+  getPlayerUsername(){
+    return this.playerUsername;
   }
 
   getCurrentDifficulty(){

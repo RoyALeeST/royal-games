@@ -1,5 +1,5 @@
 const EmpireSaysQuestion = require('../../models/question/empireSaysQuestion')
-
+const ioCtrl = require("../../Connection/twitch_conn");
 //#region  GET FUNCTIONS
 
     /**
@@ -32,6 +32,7 @@ const EmpireSaysQuestion = require('../../models/question/empireSaysQuestion')
                     EmpireSaysQuestion.findOne({difficulty: questionDifficulty}).skip(random).exec(
                     function (err, result) {
                         // Tada! random question
+                        ioCtrl.emitNewQUestionRequested(result);
                         return res.send(result);
                     })
                 })

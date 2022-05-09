@@ -1,11 +1,13 @@
 .question-container{
     border: 1px solid black;
+    display: flex;
+    align-items: center;
 }
 
 h1 {
     font-family: "Avant Garde", Avantgarde, "Century Gothic", CenturyGothic, "AppleGothic", sans-serif;
-    padding: 80px 50px;
-    font-size:  min(4vw, 5vw);
+    padding: 50px 50px;
+    font-size:  min(2vw, 5vw);
     text-align: center;
     text-transform: uppercase;
     text-rendering: optimizeLegibility;

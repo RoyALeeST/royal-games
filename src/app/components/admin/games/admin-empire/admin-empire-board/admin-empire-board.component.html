@@ -1,8 +1,42 @@
 <div class="board-container">
-    <div class="question-container">
-        <royal-empire-question [question]="questionData.question"></royal-empire-question>
+    <div class="board-header">            
+        <royal-empire-score-board [usersData]="usersData" [questionData]="questionData"></royal-empire-score-board>
     </div>
     <div class="answers-board-container">
         <royal-admin-empire-answers-board [answers]="questionData.answers"></royal-admin-empire-answers-board>
+    </div>
+    <div class="incorrect-answer-buttons">
+        <div class="player-1-buttons">
+            <div class="wrong-answer-btn-container">
+                <button class="button-66 btn" role="button" (click)="emitWrongAnswer(usersData[0].playerNumber)">P1 Incorrecto</button>
+            </div>
+            <div class="wrong-answer-btn-container">
+                <button class="button-66 btn" role="button" (click)="addPointsToPlayer(usersData[0])">Dar Puntos a P1</button>
+            </div>
+        </div>
+        <div class="game-buttons">
+            <div class="wrong-answer-btn-container">
+                <button class="button-66" role="button" (click)="requestNextQuestion()">Nueva Pregunta</button>
+            </div>
+            <div class="reset-game-btn-container">
+                <button class="button-66" role="button" (click)="showIncorrectAnswerBuzzer()">BUZZER!!</button>
+            </div>
+            <div class="reset-game-btn-container">
+                <button class="button-66" role="button" (click)="revealQuestion()">Revelar Pregunta</button>
+            </div>
+        </div>
+        <div class="player-2-buttons">
+            <div class="wrong-answer-btn-container">
+                <button class="button-66 btn" role="button" (click)="emitWrongAnswer(usersData[1].playerNumber)">P2 Incorrecto</button>
+            </div>
+            <div class="wrong-answer-btn-container">
+                <button class="button-66 btn" role="button" (click)="addPointsToPlayer(usersData[1])">Dar Puntos a P2</button>
+            </div>
+        </div>
+    </div>
+    <div class="game-reset-btn-container">
+        <div class="reset-game-btn-container">
+            <button class="button-66 btn" role="button" (click)="resetGame()">NEW GAME</button>
+        </div>
     </div>
 </div>
