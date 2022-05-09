@@ -1,28 +1,32 @@
-<ng-container *ngIf="questionType == eAnswerTypesEnum.REGULAR; else second">
-        <button class="answer-btn" 
-                id="{{'answer-' + answerID}}" 
-                [ngClass]="{'correct-answer': isCorrect(), 
-                        'neutral-answer': !isIncorrect()}" 
-                (click)="emitAnswerSelected()" 
-                (mouseenter)="playCursorSfx()">{{answer}}</button>
-</ng-container>
-<ng-template #second>
-        <ng-container *ngIf="questionType == eAnswerTypesEnum.IMAGE_ANSWER;else third">
-                IMAGE ANSWER
-        </ng-container>
-</ng-template>
-<ng-template #third>
-        <ng-container *ngIf="questionType == eAnswerTypesEnum.IMAGE_QUESTION; else fourth">
+
+
+<<ng-container *ngIf="answer != null">
+        <ng-container *ngIf="questionType == eAnswerTypesEnum.REGULAR; else second">
                 <button class="answer-btn" 
                         id="{{'answer-' + answerID}}" 
                         [ngClass]="{'correct-answer': isCorrect(), 
                                 'neutral-answer': !isIncorrect()}" 
                         (click)="emitAnswerSelected()" 
-                        (mouseenter)="playCursorSfx()">{{answer}}</button>
+                        (mouseenter)="playCursorSfx()">{{answer.answer}}</button>
         </ng-container>
-</ng-template>
-<ng-template #fourth>
-        <ng-container *ngIf="questionType == eAnswerTypesEnum.SOUND">
-
-        </ng-container>
-</ng-template>
+        <ng-template #second>
+                <ng-container *ngIf="questionType == eAnswerTypesEnum.IMAGE_ANSWER;else third">
+                        IMAGE ANSWER
+                </ng-container>
+        </ng-template>
+        <ng-template #third>
+                <ng-container *ngIf="questionType == eAnswerTypesEnum.IMAGE_QUESTION; else fourth">
+                        <button class="answer-btn" 
+                                id="{{'answer-' + answerID}}" 
+                                [ngClass]="{'correct-answer': isCorrect(), 
+                                        'neutral-answer': !isIncorrect()}" 
+                                (click)="emitAnswerSelected()" 
+                                (mouseenter)="playCursorSfx()">{{answer.answer}}</button>
+                </ng-container>
+        </ng-template>
+        <ng-template #fourth>
+                <ng-container *ngIf="questionType == eAnswerTypesEnum.SOUND">
+        
+                </ng-container>
+        </ng-template>
+</ng-container>

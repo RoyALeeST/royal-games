@@ -8,7 +8,9 @@ import { Component, OnInit } from '@angular/core';
 export class MillionaireComponent implements OnInit {
 
   bgUrl: string = "assets/images/backgrounds/bg_1.gif"
-  constructor() { }
+  constructor() { 
+
+  }
 
   ngOnInit(): void {
   }

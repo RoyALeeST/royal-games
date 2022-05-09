@@ -3,6 +3,7 @@ import { NgModule, CUSTOM_ELEMENTS_SCHEMA  } from '@angular/core';
 import { HttpClientModule } from '@angular/common/http';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations'; // Angular material Browser Animations
 import { FlexLayoutModule } from "@angular/flex-layout";
+import { FormsModule } from '@angular/forms';
 
 import { AppComponent } from './app.component';
 
@@ -47,6 +48,7 @@ import { EmpireSaysService } from './services/games/empireSays.service';
     MillionaireModule,
     EmpireModule,
     FlexLayoutModule,
+    FormsModule,
   ],
   exports:[NgParticlesModule],
   providers: [ScriptService, SpinWheelService, EmpireSaysService],

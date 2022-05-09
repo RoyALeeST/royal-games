@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { ReactiveFormsModule } from '@angular/forms';
+import { FormsModule } from '@angular/forms';
 
 //Custom Modules
 import { AdminRoutingModule } from '../../routing/admin/admin-routing.module';
@@ -14,6 +15,8 @@ import { AdminEmpireBoardComponent } from '../../components/admin/games/admin-em
 import { AdminEmpireAnswersBoardComponent } from '../../components/admin/games/admin-empire/admin-empire-board/admin-empire-answers-board/admin-empire-answers-board.component';
 import { AdminEmpireAnswerComponent } from '../../components/admin/games/admin-empire/admin-empire-board/admin-empire-answers-board/admin-empire-answer/admin-empire-answer.component';
 
+import { AdminMillionaireComponent } from '../../components/admin/games/admin-millionaire/admin-millionaire.component';
+
 // Custom Services
 import { EmpireSaysService } from '../../services/games/empireSays.service';
 
@@ -24,12 +27,14 @@ import { EmpireSaysService } from '../../services/games/empireSays.service';
     AdminEmpireBoardComponent,
     AdminEmpireAnswersBoardComponent,
     AdminEmpireAnswerComponent,
+    AdminMillionaireComponent,
   ],
   imports: [
     CommonModule,
     AdminRoutingModule,
     SharedModule,
     ReactiveFormsModule,
+    FormsModule,
     MillionaireModule,
     EmpireModule,
   ],

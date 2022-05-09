@@ -1,0 +1,10 @@
+<div class="player-input-container">
+    <div class="form__group field">
+        <input [(ngModel)] ="playerUsername" type="input" class="form__field" placeholder="Name" name="name" id='name' required />
+        <label for="name" class="form__label">Name</label>
+      </div>
+      <button class="btn btn-success" (click)="notifyPlayerUsernameChanged()">Change Player</button>
+</div>
+<royal-board></royal-board>
+
+
